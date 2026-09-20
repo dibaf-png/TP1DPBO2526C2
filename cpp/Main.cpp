@@ -4,9 +4,7 @@
 #include "Bioskop.cpp" //mngimpor file implementasi/definisi class Bioskop dari luar
 
 using namespace std; //ini agar tidak perlu menuliskan 'std::' di setiap fungsi
-
 vector<Bioskop> dataBioskop; //membentuk kontainer vector global bertipe 'Bioskop' untuk menyimpan daftar bioskop
-
 //ini untuk mengecek apakah ID bioskop sudah ada di dalam dataBioskop atau belum
 bool cekId(string Id_bioskop){
     for (const auto &Bioskop : dataBioskop){ //melakukan iterasi pada setiap objek Bioskop di dalam vector
