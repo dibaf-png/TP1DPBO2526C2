@@ -39,7 +39,8 @@ Contoh di php:<br>
 - Terdapat pesan error jika memilih opsi menu menggunakan input non-numerik atau angka di luar pilihan yang tersedia (0-5). <br>
 
 Contoh di cpp, java dan python:<br>
-
+<img width="333" height="161" alt="error7" src="https://github.com/user-attachments/assets/adf26532-ae4d-4b51-bae0-f809149a4934" />
+<img width="560" height="177" alt="error8" src="https://github.com/user-attachments/assets/71c71b72-ecde-448d-b78e-afe972658a94" />
 
 
 
