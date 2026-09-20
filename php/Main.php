@@ -59,10 +59,10 @@ if (isset($_POST['tambah'])) {
     // Mengambil input Jumlah Studio dari form
     $jumlah_studio = $_POST['jumlah_studio'];
 
-    // Validasi: Cek apakah ada field teks yang kosong atau jumlah studio bukan angka / bernilai negatif
-    if (empty($id_bioskop) || empty($nama_bioskop) || empty($alamat) || empty($snack_jual) || !is_numeric($jumlah_studio) || $jumlah_studio < 0) {
+    // Validasi: Cek apakah ada field teks yang kosong atau jumlah studio bukan angka / <= 0
+    if (empty($id_bioskop) || empty($nama_bioskop) || empty($alamat) || empty($snack_jual) || !is_numeric($jumlah_studio) || $jumlah_studio <= 0) {
         // Mengatur pesan error jika inputan tidak valid
-        $message = "Input tidak valid. Pastikan semua field terisi dan jumlah studio bernilai positif.";
+        $message = "Input tidak valid. Pastikan semua field terisi dan jumlah studio bernilai positif lebih dari 0.";
         // Mengatur tipe pesan menjadi 'error'
         $message_type = 'error';
     // Cek apakah ID bioskop sudah terdaftar sebelumnya
@@ -152,10 +152,10 @@ function updateBioskop($id_update) {
             // Mengambil input jumlah studio baru dari form
             $studio_baru   = $_POST['jumlah_studio'];
 
-            // Validasi: Cek kelengkapan input dan validitas angka studio
-            if (empty($nama_baru) || empty($alamat_baru) || empty($snack_baru) || !is_numeric($studio_baru) || $studio_baru < 0) {
+            // Validasi: Cek kelengkapan input dan validitas angka studio (tidak boleh <= 0)
+            if (empty($nama_baru) || empty($alamat_baru) || empty($snack_baru) || !is_numeric($studio_baru) || $studio_baru <= 0) {
                 // Mengembalikan pesan error jika data tidak valid
-                return ["Input tidak valid. Pastikan semua teks terisi dan studio bernilai positif.", 'error'];
+                return ["Input tidak valid. Pastikan semua teks terisi dan studio bernilai lebih dari 0.", 'error'];
             }
 
             // Jika ID diubah dan ID baru tersebut berbeda dari ID lama
@@ -571,7 +571,8 @@ if (isset($_GET['edit_id'])) {
                 <!-- Grup Input: Jumlah Studio -->
                 <div class="form-group">
                     <label>Jumlah Studio:</label>
-                    <input type="number" name="jumlah_studio" class="form-control" value="<?= htmlspecialchars($edit_studio); ?>" placeholder="4" min="0" required>
+                    <!-- Mengubah min="0" menjadi min="1" agar browser menolak angka 0 -->
+                    <input type="number" name="jumlah_studio" class="form-control" value="<?= htmlspecialchars($edit_studio); ?>" placeholder="4" min="1" required>
                 </div>
 
                 <!-- Tombol Submit Form (name="update" jika edit, name="tambah" jika tambah baru) -->
