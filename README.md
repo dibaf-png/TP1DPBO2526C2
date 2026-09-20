@@ -36,6 +36,9 @@ Contoh error di python, cpp, java dan php:<br>
 Contoh di php:<br>
 <img width="314" height="418" alt="error6" src="https://github.com/user-attachments/assets/6290af8d-ee80-4a65-b675-0d6483ddd7c0" />
 
+- Terdapat pesan error jika memilih opsi menu menggunakan input non-numerik atau angka di luar pilihan yang tersedia (0-5). <br>
+
+Contoh di cpp, java dan python:<br>
 
 
 
